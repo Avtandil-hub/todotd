@@ -6,3 +6,6 @@ def homepage(reguest):
 
 def go(reguest):
     return HttpResponse('This is my first page')
+
+def third(reguest):
+    return HttpResponse('This is page test3')
