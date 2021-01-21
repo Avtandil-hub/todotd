@@ -16,15 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from main.views import homepage,go
-from main.views import third
+from main.views import third,add,tap,apk
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage, name= 'home'),
-    path('go', go, name= ' go'),
-    path('test3', third)
+    path('go', go, name= 'go'),
+    path('test3', third),
+    path('add', add),
+    path('tap', tap),
+    path('apk', apk),
+
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
