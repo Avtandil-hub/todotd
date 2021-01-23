@@ -21,5 +21,5 @@ def apk(reguest):
     return render(reguest, 'apk.html')
 
 def test(reguest):
-    todo_list = TODO.objects.all()
+    TODO_list = TODO.objects.all()
     return render(reguest,'test.html')
