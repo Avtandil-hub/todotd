@@ -14,13 +14,13 @@
     <section>
         <div class="create_container">
            <form action="{% url 'add-book' %}" method="POST">
-            {% csrf_token %}
-            <input
+             {% csrf_token %}
+             <input
                 class="create_input"
                 type="text"
                 placeholder="Жаны тапшырма" 
                 name="book_text"
-            />
+             />
              <button class="create_button">Кошуу</button>
            </form>
         </div>

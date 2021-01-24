@@ -28,7 +28,7 @@ def bookss(request):
 
 def add_book(reguest):
     form = reguest.POST
-    book = form('book_text')
-    book = books(books=book)
+    title = form['book_text']
+    book = books(title=title)
     book.save()
-    return  HttpResponse(reguest, "иштеди")
+    return  redirect(bookss)
