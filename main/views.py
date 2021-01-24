@@ -25,3 +25,6 @@ def apk(reguest):
 def bookss(request):
     bib_books = books.objects.all()
     return render(request, 'books.html', {"bib_books": bib_books})
+
+def add_book(reguest):
+    return  HttpResponse(reguest, "иштеди")

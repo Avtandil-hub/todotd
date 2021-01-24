@@ -1,20 +1,53 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viemport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo</title>
+    <!--<link rel="stylesheet" href="./styles/index.css" /> -->
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}" />
+    <!-- <link rel="stylesheet" href="./styles/checkbox.css" /> -->
+    <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}" />
 </head>
 <body>
-    {% for book in bib_books %}
-        <h4>{{ book.title }}</h4>
-        <p>{{ book.price }}</p><br>
-        <p>{{ book.ganre}}</p><br>
-        <p>{{ book.author}}</p><br>
-        <p>{{ book.year}}</p><br>
-        <p>{{ book.date}}</p>
+    <section>
+        <div class="create_container">
+            <form action="{% url 'add-book' %}" method="POST"></form>
+            {% csrf_token %}
+            <input
+                class="create_input"
+                type="text"
+                placeholder="Жаны тапшырма" 
+            name="book_text"
+            />
+            <button class="create_button">Кошуу</button>
+        </div>
 
-
-    {% endfor %}
+        <div class="todo_container">
+        {% for book in bib_books %}
+            <div class="todo_item">
+                <div class="todo_item_header">
+                    <label class="checkbox_container">
+                        <input type="checkbox"/>
+                        <span class="checkmark"></span>
+                    </label>
+                    <h4>{{ book.title }}</h4>
+                </div>
+                <div class="todo_item_footer">
+                    <p>{{ book.prace }}</p><br>
+                    <p>{{ book.genre }}</p><br>
+                    <p>{{ book.author }}</p><br>
+                    <p>{{ book.year }}</p><br>
+                    <p>{{ book.date }}</p>
+                    <div class="action_buttons">
+                        <img src="{% static 'icons/unmarked.png' %}">
+                        <img src="{% static 'icons/delete.png' %}">
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
 </body>
 </html>

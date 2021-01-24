@@ -30,6 +30,7 @@ urlpatterns = [
     path('tap', tap),
     path('apk', apk),
     path('books/', bookss),
+    path('add-book', add_book , name='add-book'),
     
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
