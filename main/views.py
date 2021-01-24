@@ -27,4 +27,8 @@ def bookss(request):
     return render(request, 'books.html', {"bib_books": bib_books})
 
 def add_book(reguest):
+    form = reguest.POST
+    book = form('book_text')
+    book = books(books=book)
+    book.save()
     return  HttpResponse(reguest, "иштеди")
