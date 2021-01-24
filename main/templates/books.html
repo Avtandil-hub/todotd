@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    { % for todo in todo % }
-        {{ todo.text }}
-    {% endfor %}
+    {% for book in books %}
+        {{ book.title }}
+    {% endfor }
 </body>
 </html>

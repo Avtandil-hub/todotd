@@ -20,6 +20,6 @@ def tap(reguest):
 def apk(reguest):
     return render(reguest, 'apk.html')
 
-def books(reguest):
-    todo = Настройка.objects.all()
-    return render(reguest, 'books.html', {'todo': todo})
+def bookss(request):
+    bib_books = books.objects.all()
+    return render(request, 'books.html', {"books": bib_books})
