@@ -29,6 +29,34 @@ def bookss(request):
 def add_book(reguest):
     form = reguest.POST
     title = form['book_text']
-    book = books(title=title)
+    subtitle = form['book_subtitle']
+    description = form['book_description']
+    price = form['book_price']
+    genre = form['book_genre']
+    author = form['book_author']
+    year = form['book_year']
+    book = books(title=title, subtitle=subtitle, description=description, price=price, genre=genre, author=author, year=year)
     book.save()
-    return  redirect(bookss)
+    return redirect(bookss)
+
+def delete_todo(reguest, id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(homepage)
+
+def delete_book(reguest, id):
+    book = books.objects.get(id=id)
+    book.delete()
+    return redirect(bookss)
+
+def mark_book(reguest, id):
+    book = books.objects.get(id=id)
+    book.is_favorite = False
+    book.save()
+    return redirect(bookss)
+
+def marked_book(reguest, id):
+    book = books.objects.get(id=id)
+    book.is_favorite = True
+    book.save()
+    return redirect(bookss)

@@ -18,8 +18,45 @@
              <input
                 class="create_input"
                 type="text"
-                placeholder="Жаны тапшырма" 
+                placeholder="Поиск для книга" 
                 name="book_text"
+             />
+             <input 
+                class='create_input'
+                type="text"
+                placeholder="Под заговолок"
+                name='book_subtitle'
+             />
+
+             <input
+                class="create_input"
+                type="text"
+                placeholder="Описание"
+                name="book_description"
+             />
+             <input
+                class="create_input"
+                type="text"
+                placeholder="Цена"
+                name="book_price"
+             />
+             <input
+                class="create_input"
+                type="text"
+                placeholder="Жанр"
+                name="book_genre"
+             />
+             <input
+                class="create_input"
+                type="text"
+                placeholder="Автор"
+                name="book_author"
+             />
+             <input
+                class="create_input"
+                type="text"
+                placeholder="Год выхода книги"
+                name="book_year"
              />
              <button class="create_button">Кошуу</button>
            </form>
@@ -27,23 +64,28 @@
 
         <div class="todo_container">
         {% for book in bib_books %}
-            <div class="todo_item">
+            <div class="todo_item
+            {% if book.is_favorite %}
+                marked 
+            {% endif %}
+            ">
                 <div class="todo_item_header">
-                    <label class="checkbox_container">
-                        <input type="checkbox"/>
-                        <span class="checkmark"></span>
-                    </label>
                     <h4>{{ book.title }}</h4>
                 </div>
-                <div class="todo_item_footer">
-                    <p>{{ book.prace }}</p><br>
-                    <p>{{ book.genre }}</p><br>
-                    <p>{{ book.author }}</p><br>
-                    <p>{{ book.year }}</p><br>
+                    <p><b>Описание</b><br> {{ book.description }}</p><br>
+                    <p><b>Жанр</b> {{ book.genre }}</p><br>
+                    <p><b>Автор</b> {{ book.author }}</p><br>
+                    <p><b>Год выпуска</b> {{ book.year }}</p><br>
+                    <p><b>Цена</b> {{ book.price }}</p><br>
                     <p>{{ book.date }}</p>
+                <div class="todo_item_footer">
                     <div class="action_buttons">
-                        <img src="{% static 'icons/unmarked.png' %}">
-                        <img src="{% static 'icons/delete.png' %}">
+                        {% if book.is_favorite %}
+                            <a href="{% url 'mark-book' book.id %}"><img src="{% static 'icons/marked.png' %}"></a>
+                        {% else %}
+                            <a href="{% url 'marked-book' book.id %}"><img src="{% static 'icons/unmarked.png' %}"></a>
+                        {% endif %}
+                        <a href="{% url 'delete-book' book.id %}"><img src="{% static 'icons/delete.png' %}"></a>
                     </div>
                 </div>
             </div>
