@@ -21,109 +21,24 @@
             </div>
 
             <div class="todo_container">
-
+            {% for todoo in todo %}
                 <div class="todo_item">
                     <div class="todo_item_header">
                         <label class="checkbox_container">
                             <input type="checkbox"/>
                             <span class="checkmark"></span>
                         </label>
-                        <h4>Сут сатып алуу</h4>
+                        <h4>{{todoo.text}}</h4>
                     </div>
                     <div class="todo_item_footer">
-                        <p>17.11.2020<span>17:22</span></p>
+                        <p>{{todoo.created_at}}</p>
                         <div class="action_buttons">
                             <img src="{% static 'icons/unmarked.png' %}">
                             <img src="{% static 'icons/delete.png' %}">
                         </div>
                     </div>
                 </div>
-
-                <div class="todo_item marked">
-                    <div class="todo_item_header">
-                        <label class="checkbox_container">
-                            <input type="checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <h4>Сут сатып алуу</h4>
-                    </div>
-                    <div class="todo_item_footer">
-                        <p>17.11.2020<span>17:22</span></p>
-                        <div class="action_buttons">
-                            <img src="icons/marked.png">
-                            <img src="icons/delete.png">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="todo_item done">
-                    <div class="todo_item_header">
-                        <label class="checkbox_container">
-                            <input type="checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <h4>Сут сатып алуу</h4>
-                    </div>
-                    <div class="todo_item_footer">
-                        <p>17.11.2020<span>17:22</span></p>
-                        <div class="action_buttons">
-                            <img src="icons/unmarked.png">
-                            <img src="icons/delete.png">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="todo_item marked">
-                    <div class="todo_item_header">
-                        <label class="checkbox_container">
-                            <input type="checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <h4>Сут сатып алуу</h4>
-                    </div>
-                    <div class="todo_item_footer">
-                        <p>17.11.2020<span>17:22</span></p>
-                        <div class="action_buttons">
-                            <img src="icons/marked.png">
-                            <img src="icons/delete.png">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="todo_item">
-                    <div class="todo_item_header">
-                        <label class="checkbox_container">
-                            <input type="checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <h4>Сут сатып алуу</h4>
-                    </div>
-                    <div class="todo_item_footer">
-                        <p>17.11.2020<span>17:22</span></p>
-                        <div class="action_buttons">
-                            <img src="icons/unmarked.png">
-                            <img src="icons/delete.png">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="todo_item done">
-                    <div class="todo_item_header">
-                        <label class="checkbox_container">
-                            <input type="checkbox" />
-                            <span class="checkmark"></span>
-                        </label>
-                        <h4>Сут сатып алуу</h4>
-                    </div>
-                    <div class="todo_item_footer">
-                        <p>17.11.2020<span>17:22</span></p>
-                        <div class="action_buttons">
-                            <img src="icons/unmarked.png">
-                            <img src="icons/delete.png">
-                        </div>
-                    </div>
-                </div>
-                
+            {% endfor %}
             </div>
         </section>
     </body>

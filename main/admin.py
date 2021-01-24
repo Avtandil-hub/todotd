@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Настройка
+from .models import ToDo
+from .models import books
 
 
-admin.site.register(Настройка)
+admin.site.register(ToDo)
+admin.site.register(books)

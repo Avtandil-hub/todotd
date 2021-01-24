@@ -1,9 +1,11 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import Настройка 
+from .models import ToDo 
+from .models import books
 
 # Create your views here.
 def homepage(reguest):
-    return render(reguest, 'index.html')
+    todo = ToDo.objects.all()
+    return render(reguest, 'index.html', {'todo': todo})
 
 def go(reguest):
     return HttpResponse('This is my first page')
@@ -22,4 +24,4 @@ def apk(reguest):
 
 def bookss(request):
     bib_books = books.objects.all()
-    return render(request, 'books.html', {"books": bib_books})
+    return render(request, 'books.html', {"bib_books": bib_books})

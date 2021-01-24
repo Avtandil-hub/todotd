@@ -6,8 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    {% for book in books %}
-        {{ book.title }}
-    {% endfor }
+    {% for book in bib_books %}
+        <h4>{{ book.title }}</h4>
+        <p>{{ book.price }}</p><br>
+        <p>{{ book.ganre}}</p><br>
+        <p>{{ book.author}}</p><br>
+        <p>{{ book.year}}</p><br>
+        <p>{{ book.date}}</p>
+
+
+    {% endfor %}
 </body>
 </html>
