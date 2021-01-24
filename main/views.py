@@ -1,5 +1,5 @@
-from django.shortcuts import render,HttpResponse
-from .models import TODO
+from django.shortcuts import render, HttpResponse, redirect
+from .models import Настройка 
 
 # Create your views here.
 def homepage(reguest):
@@ -20,6 +20,6 @@ def tap(reguest):
 def apk(reguest):
     return render(reguest, 'apk.html')
 
-def test(reguest):
-    TODO_list = TODO.objects.all()
-    return render(reguest,'test.html')
+def books(reguest):
+    todo = Настройка.objects.all()
+    return render(reguest, 'books.html', {'todo': todo})
