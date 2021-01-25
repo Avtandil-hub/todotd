@@ -60,3 +60,7 @@ def marked_book(reguest, id):
     book.is_favorite = True
     book.save()
     return redirect(bookss)
+
+def book_detale(reguest, id):
+    book = books.objects.filter(id=id)
+    return render(reguest, 'books_detail.html', {'book': book})

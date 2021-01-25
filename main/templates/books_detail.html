@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(28, 184, 48, 0.924);
+        }
+    </style>
+</head>
+<body>
+    {% for books in book %}
+        <h1>{{ books.title }}</h1>
+        <p><b>Описание</b><br> {{ books.description }}</p><br>
+        <p><b>Жанр</b> {{ books.genre }}</p><br>
+        <p><b>Автор</b> {{ books.author }}</p><br>
+        <p><b>Год выпуска</b> {{ books.year }}</p><br>
+        <p><b>Цена</b> {{ books.price }}</p><br>
+        <p>{{ books.date }}</p>
+    {% endfor %}
+    
+</body>
+</html>

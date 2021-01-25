@@ -1,0 +1,18 @@
+section{
+    display: flex;
+    width: 100%;
+
+}
+
+
+.book{
+    width: 80%;
+    border: 1px solid black;
+    height: 90vh;
+}
+
+.paint{
+    width: 20%;
+    border: 1px solid black;
+}
+

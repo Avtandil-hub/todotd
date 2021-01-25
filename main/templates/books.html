@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viemport" content="width=device-width, initial-scale=1.0" />
@@ -10,87 +11,61 @@
     <!-- <link rel="stylesheet" href="./styles/checkbox.css" /> -->
     <link rel="stylesheet" href="{% static 'styles/checkbox.css' %}" />
 </head>
+
 <body>
     <section>
-        <div class="create_container">
-           <form action="{% url 'add-book' %}" method="POST">
-             {% csrf_token %}
-             <input
-                class="create_input"
-                type="text"
-                placeholder="Поиск для книга" 
-                name="book_text"
-             />
-             <input 
-                class='create_input'
-                type="text"
-                placeholder="Под заговолок"
-                name='book_subtitle'
-             />
-
-             <input
-                class="create_input"
-                type="text"
-                placeholder="Описание"
-                name="book_description"
-             />
-             <input
-                class="create_input"
-                type="text"
-                placeholder="Цена"
-                name="book_price"
-             />
-             <input
-                class="create_input"
-                type="text"
-                placeholder="Жанр"
-                name="book_genre"
-             />
-             <input
-                class="create_input"
-                type="text"
-                placeholder="Автор"
-                name="book_author"
-             />
-             <input
-                class="create_input"
-                type="text"
-                placeholder="Год выхода книги"
-                name="book_year"
-             />
-             <button class="create_button">Кошуу</button>
-           </form>
-        </div>
-
-        <div class="todo_container">
-        {% for book in bib_books %}
-            <div class="todo_item
+        <div class="book">
+            {% for book in bib_books %}
+            <a href="{% url 'book-detale' book.id %}">
+                <div class="todo_item
             {% if book.is_favorite %}
                 marked 
             {% endif %}
             ">
-                <div class="todo_item_header">
-                    <h4>{{ book.title }}</h4>
-                </div>
+                    <div class="todo_item_header">
+                        <h4>{{ book.title }}</h4>
+                    </div>
                     <p><b>Описание</b><br> {{ book.description }}</p><br>
                     <p><b>Жанр</b> {{ book.genre }}</p><br>
                     <p><b>Автор</b> {{ book.author }}</p><br>
                     <p><b>Год выпуска</b> {{ book.year }}</p><br>
                     <p><b>Цена</b> {{ book.price }}</p><br>
                     <p>{{ book.date }}</p>
-                <div class="todo_item_footer">
-                    <div class="action_buttons">
-                        {% if book.is_favorite %}
+                    <div class="todo_item_footer">
+                        <div class="action_buttons">
+                            {% if book.is_favorite %}
                             <a href="{% url 'mark-book' book.id %}"><img src="{% static 'icons/marked.png' %}"></a>
-                        {% else %}
+                            {% else %}
                             <a href="{% url 'marked-book' book.id %}"><img src="{% static 'icons/unmarked.png' %}"></a>
-                        {% endif %}
-                        <a href="{% url 'delete-book' book.id %}"><img src="{% static 'icons/delete.png' %}"></a>
+                            {% endif %}
+                            <a href="{% url 'delete-book' book.id %}"><img src="{% static 'icons/delete.png' %}"></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="paint">
+            <form action="{% url 'add-book' %}" method="POST">
+                {% csrf_token %}
+                <input class="create_input" type="text" placeholder="Поиск для книга" name="book_text" />
+                <input class='create_input' type="text" placeholder="Под заговолок" name='book_subtitle' />
+
+                <input class="create_input" type="text" placeholder="Описание" name="book_description" />
+                <input class="create_input" type="text" placeholder="Цена" name="book_price" />
+                <input class="create_input" type="text" placeholder="Жанр" name="book_genre" />
+                <input class="create_input" type="text" placeholder="Автор" name="book_author" />
+                <input class="create_input" type="text" placeholder="Год выхода книги" name="book_year" />
+                <button class="create_button">Кошуу</button>
+            </form>
         </div>
     </section>
+
+    <!-- <div class="create_container"></div> -->
+
+    <!-- <div class="todo_container"></div> -->
+
 </body>
+
 </html>

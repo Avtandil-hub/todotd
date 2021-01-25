@@ -34,7 +34,8 @@ urlpatterns = [
     path('delete-book/<id>/', delete_book, name='delete-book'),
     path('mark-book/<id>/', mark_book, name='mark-book'),
     path('delete-todo/<id>/', delete_todo, name='delete-todo'),
-    path('marked-book/<id>/', marked_book, name='marked-book')
+    path('marked-book/<id>/', marked_book, name='marked-book'),
+    path('book-detale/<id>', book_detale, name='book-detale')
     
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
