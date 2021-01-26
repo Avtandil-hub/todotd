@@ -6,7 +6,26 @@
 }
 
 body{
-    background-color: rgba(28, 184, 48, 0.924);
+    background: url(https://images8.alphacoders.com/584/584339.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.print{
+    width: 100%;
+    text-align: center;
+    font-size: 100px;
+    color: #000000;
+}
+
+.shrif{
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 30px;
+    border: 2px double black;
 }
 
 .book a{
@@ -38,6 +57,7 @@ form{
 
 form input{
     margin: 5px;
+    background-color: transparent;
 }
 
 .create_container{
@@ -77,12 +97,13 @@ form input{
     border-radius: 5px;
     width: 24%;
     padding: 10px 15px;
-    background-color: #c8e6c9;
+    background: url(https://img-fotki.yandex.ru/get/58191/31437589.7/0_79f65_a6328b62_XL);
     height: 100%;
-    margin: 3px; 
-
+    margin: 3px;
 }
-
+.todo_item p, .todo_item h4, .todo_item b{
+    color: rgb(0, 0, 0)
+}
 .todo_item.done{
     background-color: #e0e0e0;
     text-decoration: line-through;
@@ -116,7 +137,7 @@ form input{
 .todo_item_footer{
     display: flex;
     justify-content: space-between;
-    align-items: center         ;
+    align-items: center;
 }
 
 .todo_item_footer p{
